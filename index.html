@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kudakwashe Rupuwu · Portfolio</title>
+  <meta name="description" content="Kudakwashe Rupuwu | Investment Analyst |" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#000000; --card:#0f1626; --card-2:#0d1220; --text:#e6e9ef; --muted:#9aa4b2; --brand:#7c3aed; --brand-2:#22d3ee;
+      --accent:#38bdf8; --border:#1f2937; --ring: rgba(124,58,237,.35); --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    @media (prefers-color-scheme: light) {
+      :root{ --bg:#000000; --card:#0f1626; --card-2:#0d1220; --text:#e6e9ef; --muted:#9aa4b2; --border:#1f2937; --ring: rgba(124,58,237,.35); --shadow:0 10px 30px rgba(0,0,0,.35); }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:radial-gradient(1200px 600px at 10% -20%, rgba(124,58,237,.18), transparent),
+                  radial-gradient(1000px 500px at 100% 10%, rgba(34,211,238,.14), transparent),
+                  var(--bg);
+         color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6;scroll-behavior:smooth}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{opacity:.9}
+    .container{width:min(1100px,92%);margin:0 auto}
+    header{position:sticky;top:0;z-index:40;background:linear-gradient(180deg, rgba(11,14,20,.9), rgba(11,14,20,.55) 80%, transparent);
+      backdrop-filter:saturate(160%) blur(10px); border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{font-weight:800;font-size:20px;color:#fff;letter-spacing:.2px}
+    .nav a{margin-left:18px;color:#fff;font-weight:500;opacity:.9;position:relative}
+    .nav a.active::after, .nav a:hover::after{content:"";position:absolute;left:0;right:0;height:2px;bottom:-8px;background:linear-gradient(90deg,var(--brand),var(--brand-2));border-radius:2px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;font-weight:600;border:1px solid var(--border);background:var(--card)}
+    .btn--brand{background:linear-gradient(135deg,var(--brand),var(--brand-2));border:none;color:#fff;box-shadow:0 12px 30px rgba(124,58,237,.35)}
+    .btn--ghost{background:transparent}
+    .hero{padding:72px 0 24px;display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;font-size:12px;border:1px solid var(--border);background:var(--card-2);color:var(--muted)}
+    .hero h1{font-size:40px;line-height:1.15;margin:12px 0 8px;background:linear-gradient(135deg,var(--brand),var(--brand-2));-webkit-background-clip:text;color:transparent}
+    .typed{display:inline-block;min-height:1.3em;border-right:2px solid var(--accent);padding-right:6px;white-space:nowrap;overflow:hidden}
+    .hero p{color:var(--muted);max-width:65ch}
+    .cta{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
+    .avatar-wrap{justify-self:end;position:relative}
+    .avatar{width:160px;height:160px;border-radius:24px;object-fit:cover;border:2px solid var(--border);box-shadow:var(--shadow)}
+    .glow{position:absolute;inset:-14px;z-index:-1;border-radius:30px;background:conic-gradient(from 0deg, var(--brand), var(--brand-2), var(--brand));filter:blur(18px);opacity:.35}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .stat{background:linear-gradient(180deg,var(--card),var(--card-2));border:1px solid var(--border);padding:12px 14px;border-radius:14px;text-align:center}
+    .stat h4{font-size:20px;margin-bottom:4px}
+    section{padding:64px 0}
+    .section-title{text-align:center;font-size:26px;margin-bottom:28px;background:linear-gradient(135deg,var(--brand),var(--brand-2));-webkit-background-clip:text;color:transparent}
+    .card{background:linear-gradient(180deg,var(--card),var(--card-2));border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+    .muted{color:var(--muted)}
+    .timeline{position:relative;margin-left:8px}
+    .timeline::before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(var(--brand), var(--brand-2))}
+    .t-item{position:relative;padding-left:28px;margin:14px 0}
+    .t-item::before{content:"";position:absolute;left:4px;top:8px;width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 2px 10px rgba(34,211,238,.35)}
+    .chips{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{padding:6px 10px;border-radius:999px;background:var(--card-2);border:1px solid var(--border);font-size:13px}
+    .meter{height:10px;border-radius:999px;background:rgba(148,163,184,.25);overflow:hidden;border:1px solid var(--border)}
+    .meter > span{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--brand-2))}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+    .p-card{border:1px solid var(--border);border-radius:16px;padding:18px;background:linear-gradient(180deg,var(--card),var(--card-2));box-shadow:var(--shadow);transition:transform .2s ease, box-shadow .2s ease}
+    .p-card:hover{transform:translateY(-4px) scale(1.01);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+    .p-actions{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    footer{text-align:center;padding:36px 0;color:var(--muted);border-top:1px dashed var(--border)}
+    .theme-toggle{position:fixed;bottom:22px;right:22px;z-index:60}
+    .to-top{position:fixed;bottom:22px;left:22px;z-index:60;display:none}
+    .reveal{opacity:0;transform:translateY(14px);transition:all .6s ease}
+    .reveal.reveal-active{opacity:1;transform:none}
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .avatar-wrap{justify-self:start}
+      .avatar{width:130px;height:130px}
+      .stats{grid-template-columns:1fr 1fr}
+    }
+    @media (prefers-reduced-motion: reduce){*{transition:none !important;animation:none !important}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">Kuda</div>
+      <nav id="navlinks">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Portfolio</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn--brand" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="badge">📍 Oklahoma City, OK • CFA Level II Candidate (May 2026)</span>
+        <h1>Hi, I’m <strong>Kudakwashe Rupuwu</strong>.</h1>
+        <h2 class="muted"><span class="typed" id="typed"></span></h2>
+        <p class="muted">Investment Analyst supporting a $17.7B state fixed-income portfolio. I turn market and rate data into investable insights across U.S. Treasuries, agencies, and MBS, balancing liquidity, duration, and risk. Fluent in Python, Excel, Bloomberg, and data-driven reporting.</p>
+        <div class="cta">
+          <a class="btn btn--brand" href="mailto:kudakwashe.rupuwu@gmail.com">Email Me</a>
+          <a class="btn" href="https://www.linkedin.com/in/kudakwashe-rupuwu/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn--ghost" href="https://github.com/KRupuwu" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><h4>$17.7B+</h4><div class="muted">Portfolio oversight</div></div>
+          <div class="stat"><h4>$100M+ / day</h4><div class="muted">Trades & cash flows</div></div>
+          <div class="stat"><h4>25% faster</h4><div class="muted">Reporting efficiency</div></div>
+        </div>
+      </div>
+      <div class="avatar-wrap">
+        <img class="avatar" src="avatar.jpg" alt="Kudakwashe Rupuwu" />
+        <div class="glow" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section id="about" class="reveal">
+      <h2 class="section-title">About</h2>
+      <div class="card">
+        <p>I’m Kudakwashe (Kuda) Rupuwu, an investment professional with 4+ years of experience spanning institutional asset management, fixed income, and private markets across emerging and developed economies. Skilled in valuations, financial modeling, due diligence, and portfolio analysis, with expertise in fixed income and equities. I support data-driven investment decisions through strong analytical and technical skills. CFA Level II candidate with a Master’s in Finance from American University (Kogod School of Business), proficient in Bloomberg, Excel, and Python.</p>
+      </div>
+    </section>
+
+    <section id="education" class="reveal">
+      <h2 class="section-title">Education</h2>
+      <div class="card timeline">
+        <div class="t-item">
+          <h3>American University · MS Finance (Financial Analytics)</h3>
+          <p class="muted">Washington, DC • Aug 2023 – Jun 2025 • GPA: 3.69 / 4.0 • Focus: Machine Learning, Equity Valuations, Fixed Income</p>
+        </div>
+        <div class="t-item">
+          <h3>University of Zimbabwe · BSc Economics</h3>
+          <p class="muted">Harare, Zimbabwe • Feb 2017 – Dec 2019 • Focus: Corporate Finance & Analytics</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="reveal">
+      <h2 class="section-title">Experience</h2>
+      <div class="card timeline">
+        <div class="t-item">
+          <h3>Investment Analyst · Oklahoma State Treasurer’s Office</h3>
+          <p class="muted">Oklahoma City, OK • Oct 2025 – Present</p>
+          <ul class="muted">
+            <li>Support the management of a $17.7B fixed-income portfolio; execute $100M+ in daily trades and maintain treasury cash positions to ensure 100% short-term liquidity.</li>
+            <li>Analyze markets and interest-rate trends across U.S. Treasuries, agencies, and MBS to identify yield opportunities within statutory parameters, strengthening diversification and duration strategy.</li>
+            <li>Prepare monthly investment reports, liquidity forecasts, and performance summaries for the CIO and oversight commissions; governance support for the ~$2B TSET endowment; streamlined reporting by ~25%.</li>
+          </ul>
+        </div>
+
+        <div class="t-item">
+          <h3>Senior Investment Analyst · ZB Financial Holdings (ZBFH)</h3>
+          <p class="muted">Harare, Zimbabwe • Feb 2022 – Aug 2023</p>
+          <ul class="muted">
+            <li>Managed a US$64M multi-asset portfolio spanning equities, fixed income, and infrastructure; Python-based MPT optimization improved the portfolio Sharpe Ratio by 22% during a 285% hyperinflationary environment.</li>
+            <li>Co-led an 8-person cross-functional team executing financial, commercial, and operational due diligence on the acquisition of Mashonaland Holdings, one of Zimbabwe’s largest property firms.</li>
+            <li>Coordinated legal, IT, HR, and finance workstreams through integration, delivering synergy assessments and post-merger reporting to the Investment Committee.</li>
+            <li>Built relationships with international investors, pension funds, and institutional clients, sustaining a 96% client retention ratio.</li>
+          </ul>
+        </div>
+
+        <div class="t-item">
+          <h3>Investment Analyst · ZB Financial Holdings (ZBFH)</h3>
+          <p class="muted">Harare, Zimbabwe • Jan 2020 – Feb 2022</p>
+          <ul class="muted">
+            <li>Built DCF and Comparable Company Analysis valuation models that supported US$3.2M in successful investment approvals from the Investment Committee.</li>
+            <li>Executed and settled equity trades exceeding US$4.7M in annual volume, maintaining a 99% trade accuracy rate.</li>
+            <li>Built financial models for due diligence, sensitivity analysis, and scenario planning across private equity, agricultural, and infrastructure mandates.</li>
+            <li>Developed executive-level financial presentations using PowerPoint, Excel, and Power BI, covering capital structure, liquidity risk, and portfolio performance.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="reveal">
+      <h2 class="section-title">Skills</h2>
+      <div class="card">
+        <div class="chips" style="margin-bottom:14px">
+          <span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">R</span>
+          <span class="chip">Excel</span><span class="chip">VBA</span><span class="chip">PowerPoint</span><span class="chip">Power BI</span>
+          <span class="chip">Bloomberg Terminal</span><span class="chip">Refinitiv Eikon</span><span class="chip">Monte Carlo Simulation</span>
+          <span class="chip">DCF & Comps</span><span class="chip">Sum-of-the-Parts</span><span class="chip">WACC</span><span class="chip">Scenario/Sensitivity</span>
+          <span class="chip">Portfolio Optimization</span><span class="chip">Market Risk</span><span class="chip">Derivatives Pricing</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div><div class="muted">Valuation & Modeling</div><div class="meter"><span style="width:88%"></span></div></div>
+          <div><div class="muted">Portfolio Optimization</div><div class="meter"><span style="width:86%"></span></div></div>
+          <div><div class="muted">Python for Finance</div><div class="meter"><span style="width:84%"></span></div></div>
+          <div><div class="muted">Reporting & Storytelling</div><div class="meter"><span style="width:90%"></span></div></div>
+        </div>
+        <p class="muted" style="margin-top:10px">Certifications: CFA Level II Candidate (May 2026) • FMVA (2022) • Bloomberg Market Concepts</p>
+      </div>
+    </section>
+
+    <section id="projects" class="reveal">
+      <h2 class="section-title">Portfolio</h2>
+      <div class="cards">
+        <article class="p-card">
+          <h3>Portfolio Management & Risk</h3>
+          <p class="muted">Python tool to maximize Sharpe under realistic constraints (weights, turnover, bands).</p>
+          <div class="p-actions"><a class="btn btn--brand" href="https://github.com/KRupuwu/Portfolio_Management-and-Risk" target="_blank" rel="noopener">Repo</a></div>
+        </article>
+        <article class="p-card">
+          <h3>Financial Models</h3>
+          <p class="muted">Modular templates across regressions, asset pricing, Monte Carlo, and sensitivity analysis.</p>
+          <div class="p-actions"><a class="btn" href="https://github.com/KRupuwu/Financial_Models" target="_blank" rel="noopener">Repo</a></div>
+        </article>
+        <article class="p-card">
+          <h3>Equity Valuation Models</h3>
+          <p class="muted">DCF, DDM, residual income, and relative valuation frameworks with scenarios.</p>
+          <div class="p-actions"><a class="btn" href="https://github.com/KRupuwu/Equity_Valuation_Models" target="_blank" rel="noopener">Repo</a></div>
+        </article>
+        <article class="p-card">
+          <h3>Bond Valuation Models</h3>
+          <p class="muted">YTM, spot curve bootstrapping, duration/convexity, callable/putable analysis.</p>
+          <div class="p-actions"><a class="btn" href="https://github.com/KRupuwu/Bond_Valuation_Models" target="_blank" rel="noopener">Repo</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <h2 class="section-title">Contact</h2>
+      <div class="card contact">
+        <div>
+          <p>Email: <a href="mailto:kudakwashe.rupuwu@gmail.com">kudakwashe.rupuwu@gmail.com</a></p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/kudakwashe-rupuwu/" target="_blank" rel="noopener">linkedin.com/in/kudakwashe-rupuwu</a></p>
+        </div>
+        <form action="https://formspree.io/f/xqkrrgyn" method="POST">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <input required name="name" placeholder="Your name" style="padding:10px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text)" />
+            <input required name="_replyto" type="email" placeholder="Your email" style="padding:10px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text)" />
+          </div>
+          <textarea required name="message" placeholder="Message" rows="4" style="margin-top:10px;width:100%;padding:10px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text)"></textarea>
+          <button class="btn btn--brand" type="submit" style="margin-top:10px">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>© <span id="year"></span> Kudakwashe Rupuwu. All rights reserved.</small>
+  </footer>
+
+  <button id="toTop" class="btn to-top" aria-label="Back to top">↑ Top</button>
+  <button id="theme" class="btn theme-toggle" aria-label="Toggle theme">☀/🌙</button>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Typed headlines (more dynamic & relevant)
+    const typedEl = document.getElementById('typed');
+    const phrases = [
+      "Investment Analyst · State Treasury Portfolio",
+      "U.S. Treasuries · Agencies · MBS",
+      "Liquidity, Duration, and Risk Management",
+      "Portfolio Optimization with Python"
+    ];
+    let pi = 0, ci = 0, deleting = false;
+    function typeLoop(){
+      const full = phrases[pi];
+      if(!deleting){
+        typedEl.textContent = full.slice(0, ++ci);
+        if(ci === full.length){ deleting = true; setTimeout(typeLoop, 1400); return; }
+      } else {
+        typedEl.textContent = full.slice(0, --ci);
+        if(ci === 0){ deleting = false; pi = (pi+1)%phrases.length; }
+      }
+      setTimeout(typeLoop, deleting ? 40 : 70);
+    } typeLoop();
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('reveal-active'); io.unobserve(e.target); }
+      })
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Scroll spy
+    const links = Array.from(document.querySelectorAll('#navlinks a')).filter(a=>a.getAttribute('href').startsWith('#'));
+    const sections = links.map(l=>document.querySelector(l.getAttribute('href'))).filter(Boolean);
+    const spy = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        const id = '#' + entry.target.id; const link = links.find(a=>a.getAttribute('href')===id);
+        if(entry.isIntersecting){ links.forEach(a=>a.classList.remove('active')); if(link) link.classList.add('active'); }
+      })
+    },{rootMargin:'-40% 0px -55% 0px', threshold:0});
+    sections.forEach(sec=>spy.observe(sec));
+
+    // Back to top
+    const toTop = document.getElementById('toTop');
+    window.addEventListener('scroll',()=>{toTop.style.display = window.scrollY > 500 ? 'inline-flex' : 'none';});
+    toTop.addEventListener('click',()=>window.scrollTo({top:0, behavior:'smooth'}));
+
+    // Theme toggle
+    const themeBtn = document.getElementById('theme'); const prefersLight = window.matchMedia('(prefers-color-scheme: light)');
+    function setTheme(mode){document.documentElement.style.colorScheme = mode; localStorage.setItem('theme', mode); themeBtn.textContent = mode === 'light' ? '🌙' : '☀';}
+    const saved = localStorage.getItem('theme'); if(saved){ setTheme(saved); }
+    themeBtn.addEventListener('click',()=>{
+      const current = localStorage.getItem('theme') || (prefersLight.matches ? 'light' : 'dark');
+      setTheme(current === 'light' ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
